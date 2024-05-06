@@ -13,6 +13,7 @@ export const Navbar = ({ setDarkTheme, darkTheme }) => {
             google🔎
           </p>
         </Link>
+        <Search />
         <button
           type="button"
           onClick={() => setDarkTheme(!darkTheme)}
@@ -20,7 +21,6 @@ export const Navbar = ({ setDarkTheme, darkTheme }) => {
         >
           {darkTheme ? "💡 Light" : "🌙 Dark"}
         </button>
-        <Search />
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import {
   createBrowserRouter,
-  Route,
-  createRoutesFromElements,
+  // Route,
+  // createRoutesFromElements,
 } from "react-router-dom";
 import { Results } from "./Results";
 import Layout from "../Layout";
-
+// const navigate = useNavigate();
 // export const Routes = () => {
 //   return (
 //     <div className="p-4">
@@ -30,16 +30,46 @@ import Layout from "../Layout";
 //     </div>
 //   );
 // };
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Results />} />
-      <Route path="/search" element={<Results />} />
-      <Route path="/images" element={<Results />} />
-      <Route path="/news" element={<Results />} />
-      <Route path="/videos" element={<Results />} />
-    </Route>
-  )
-);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+
+        element: <Results />,
+      },
+      {
+        path: "search",
+        element: <Results />,
+      },
+      {
+        path: "images",
+        element: <Results />,
+      },
+      {
+        path: "news",
+        element: <Results />,
+      },
+      {
+        path: "video",
+        element: <Results />,
+      },
+    ],
+  },
+]);
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<Layout />}>
+//       <Route path="" element={<Results />} />
+//       <Route path="search" element={<Results />} />
+//       <Route path="images" element={<Results />} />
+//       <Route path="news" element={<Results />} />
+//       <Route path="videos" element={<Results />} />
+//     </Route>
+//   )
+// );
 
 export default router;
